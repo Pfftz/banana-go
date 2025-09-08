@@ -1,0 +1,80 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+permissions:
+    contents: read
+
+env:
+    NEXT_TELEMETRY_DISABLED: 1
+
+jobs:
+    build-test:
+        name: Build & Validate (Node ${{ matrix.node-version }})
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                node-version: [20.x, 22.x]
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: npm
+
+            - name: Restore Next.js build cache
+              uses: actions/cache@v4
+              with:
+                  path: .next/cache
+                  key: next-cache-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                      next-cache-${{ runner.os }}-${{ matrix.node-version }}-
+                      next-cache-${{ runner.os }}-
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Lint
+              run: npm run lint
+
+            - name: Build (Turbopack + Type Check)
+              run: npm run build
+
+            - name: Summary
+              run: |
+                  echo "## CI Summary" >> $GITHUB_STEP_SUMMARY
+                  echo "Node version: ${{ matrix.node-version }}" >> $GITHUB_STEP_SUMMARY
+                  echo "Lint + Build (with implicit type check) succeeded." >> $GITHUB_STEP_SUMMARY
+
+    preview:
+        name: PR Preview Build (Node 22)
+        if: github.event_name == 'pull_request'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node 22
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22.x
+                  cache: npm
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Build (Turbopack + Type Check)
+              run: npm run build
+
+            - name: Summary
+              run: |
+                  echo "## Preview Summary" >> $GITHUB_STEP_SUMMARY
+                  echo "Preview build complete (no artifact)." >> $GITHUB_STEP_SUMMARY
