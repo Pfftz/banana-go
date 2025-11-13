@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="mt-16 bg-amber-800 border-t border-amber-200 py-8 text-center text-sm text-neutral-500">
+        <footer className="bg-amber-800 border-t border-amber-200 py-8 text-center text-sm text-neutral-500">
             <p>
                 &copy; {new Date().getFullYear()} Banana Go. All rights
                 reserved.
