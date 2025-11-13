@@ -1,0 +1,36 @@
+/* Mobile - layar kecil (portrait) */
+@media (max-width: 480px) {
+  /* CSS khusus untuk HP kecil */
+  .col-price{
+    display: none;
+  }
+
+  .col-product-info img{
+    display: none;
+  }
+
+  .header-price{
+    display: none;
+  }
+}
+
+/* Mobile - layar sedang (landscape) */
+@media (min-width: 481px) and (max-width: 767px) {
+  /* CSS untuk HP besar atau orientasi landscape */
+  .col-price{
+    display: none;
+  }
+
+  .col-product-info img{
+    display: none;
+  }
+
+  .header-price{
+    display: none;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* CSS khusus untuk tablet */
+}
