@@ -3,24 +3,24 @@ import Link from "next/link";
 
 export default function NavBar() {
     return (
-        <header className="w-full border-b bg-white/70 backdrop-blur sticky top-0 z-40">
-            <div className="mx-auto max-w-6xl flex items-center justify-between px-4 py-3">
+        <header className="sticky top-0 z-50 bg-white shadow-md w-full border-b border-amber-200">
+            <div className="container mx-auto max-w-6xl px-4 py-4 flex justify-between items-center">
                 <Link href="/" className="text-2xl font-bold text-yellow-600">
                     Banana Go
                 </Link>
-                <nav className="flex gap-6 text-sm font-medium">
-                    <Link href="/" className="hover:text-yellow-600">
+                <nav className="hidden md:flex items-center space-x-6">
+                    <Link href="/" className="text-gray-600 hover:text-amber-500 transition-colors duration-200">
                         Beranda
                     </Link>
-                    <Link href="/katalog" className="hover:text-yellow-600">
+                    <Link href="/katalog" className="text-gray-600 hover:text-amber-500 transition-colors duration-200">
                         Katalog Rasa
                     </Link>
-                    <Link href="/pemesanan" className="hover:text-yellow-600">
+                    <Link href="/pemesanan" className="text-gray-600 hover:text-amber-500 transition-colors duration-200">
                         Pemesanan
                     </Link>
                     <Link
                         href="/kontak-testimoni"
-                        className="hover:text-yellow-600"
+                        className="text-gray-600 hover:text-amber-500 transition-colors duration-200"
                     >
                         Kontak & Testimoni
                     </Link>
