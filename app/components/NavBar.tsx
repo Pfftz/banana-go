@@ -54,6 +54,13 @@ export default function NavBar() {
                     >
                         Kontak & Testimoni
                     </Link>
+
+                    <Link
+                        href="/about-us"
+                        className="text-gray-600 font-bold text-base tracking-wide px-4 py-2 rounded-full transition-all duration-300 hover:bg-yellow-200 hover:text-yellow-700"
+                    >
+                        about us
+                    </Link>
                 </nav>
             </div>
         </header>
