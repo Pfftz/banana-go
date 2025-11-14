@@ -7,7 +7,7 @@ export default function KontakTestimoniPage() {
         <div className="space-y-10">
             <header className="space-y-2 text-center">
                 <h1 className="text-3xl font-bold text-yellow-600">
-                    Kontak & Testimoni 
+                    Kontak & Testimoni
                 </h1>
                 <p className="text-neutral-600 text-sm max-w-xl mx-auto">
                     
@@ -17,24 +17,24 @@ export default function KontakTestimoniPage() {
             <div id="box" className="grid gap-6 sm:grid-cols-2">
                 <section className="grid gap-10 " >
                     <div className="space-y-4">
-                        <h2 className="font-semibold text-lg">Form Kontak</h2>
+                        <h2 className="text-gray-600 font-semibold text-lg">Form Kontak</h2>
                         <form className="grid gap-3 max-w-sm">
                             <input
-                                className="border rounded px-3 py-2 text-sm"
+                                className="text-gray-500 border rounded px-3 py-2 text-sm"
                                 placeholder="Nama"
                             />
                             <input
-                                className="border rounded px-3 py-2 text-sm"
+                                className="text-gray-500 border rounded px-3 py-2 text-sm"
                                 placeholder="Email"
                             />
                             <textarea
-                                className="border rounded px-3 py-2 text-sm"
+                                className="text-gray-500 border rounded px-3 py-2 text-sm"
                                 placeholder="Pesan"
                                 rows={4}
                             />
                             <button
                                 disabled
-                                className="bg-yellow-400/70 text-white rounded py-2 text-sm font-medium cursor-not-allowed"
+                                className="bg-yellow-400/70 text-black rounded py-2 text-sm font-semibold cursor-not-allowed"
                             >
                                 Kirim (Mockup)
                             </button>
@@ -47,7 +47,7 @@ export default function KontakTestimoniPage() {
 
                 <section className="grid gap-10 " >
                     <div className="space-y-4">
-                        <h2 className="font-semibold text-lg">Testimoni Awal</h2>
+                        <h2 className="text-gray-600 font-semibold text-lg">Testimoni Awal</h2>
                         <ul className="space-y-3">
                             {testimonials.map((t) => (
                                 <li

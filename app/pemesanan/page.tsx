@@ -22,7 +22,7 @@ export default function PemesananPage() {
                     <div className="grid gap-6 sm:grid-cols-[60%_1fr]">
                         <div className="flex " id="column">
                             <div id="column">
-                                <h2 className="font-semibold text-lg">Pesanan Anda</h2>
+                                <h2 className="text-gray-600 font-semibold text-lg">Pesanan Anda</h2>
                                 <div className="cart-header">
                                     <div className="header-product">Produk Dipesan</div>
                                     <div className="header-price">Harga Satuan</div>
@@ -44,12 +44,12 @@ export default function PemesananPage() {
                                             </div>
 
 
-                                            <div className="col-price">
+                                            <div className="text-gray-600 col-price">
                                                 <p>{item.harga}</p>
                                             </div>
 
 
-                                            <div className="col-quantity">
+                                            <div className="text-gray-600 col-quantity">
                                                 <p>{item.jumlah}</p>
                                             </div>
 
@@ -68,26 +68,26 @@ export default function PemesananPage() {
                         </div>
                         <div className="flex" id="kolom">
                             <div className="" id="form">
-                                <h2 className="font-semibold text-lg">
+                                <h2 className="text-gray-600 font-semibold text-lg">
                                     Checkout
                                 </h2>
                                 <form className="grid gap-4 max-w-md" >
                                     <input
-                                        className="border border-amber-200 rounded px-3 py-2 text-sm focus:border-amber-300"
+                                        className="text-gray-500 border border-amber-200 rounded px-3 py-2 text-sm focus:border-amber-300"
                                         placeholder="Nama"
                                     />
                                     <input
-                                        className="border border-amber-200 rounded px-3 py-2 text-sm focus:border-amber-300"
+                                        className="text-gray-500 border border-amber-200 rounded px-3 py-2 text-sm focus:border-amber-300"
                                         placeholder="Nomor WhatsApp"
                                     />
                                     <textarea
-                                        className="border border-amber-200 rounded px-3 py-2 text-sm focus:border-amber-300"
+                                        className="text-gray-500 border border-amber-200 rounded px-3 py-2 text-sm focus:border-amber-300"
                                         placeholder="Alamat Pengiriman"
                                         rows={3}
                                     />
                                     <button
                                         disabled
-                                        className="bg-yellow-400/70 text-white rounded py-2 text-sm font-medium cursor-not-allowed"
+                                        className="bg-yellow-400/70 text-black rounded py-2 text-sm font-semibold cursor-not-allowed"
                                     >
                                         Pesan (Nonaktif - mockup)
                                     </button>
