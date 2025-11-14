@@ -48,8 +48,6 @@ export default function KatalogPage() {
     }));
   };
 
-  // --- LOGIKA BARU SELESAI ---
-
   return (
     <div className="space-y-8">
       <header className="space-y-2 text-center">
@@ -59,20 +57,14 @@ export default function KatalogPage() {
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {dummy.map((item) => {
-          // Ambil kuantitas item ini dari state
           const currentQuantity = quantities[item.nama];
 
           return (
             <div key={item.nama} className="rounded-lg border border-amber-200 bg-white p-5 shadow-sm flex flex-col" id="list">
               <div id="foto" className="aspect-video w-full mb-3  grid place-items-center text-xs text-neutral-400 rounded">
-                <img
-                  src={item.img}
-                  alt={item.nama} // Alt text diperbaiki
-                  className="w-full h-50 object-cover rounded-md mb-4"
-                />
+                <img src={item.img} alt={item.nama} className="w-full h-50 object-cover rounded-md mb-4" />
               </div>
 
-              {/* Dibuat flex-grow agar form menempel di bawah */}
               <div id="column" className="flex flex-col flex-grow">
                 <h3 className="font-semibold text-yellow-700">{item.nama}</h3>
                 <p className="font-semibold text-yellow-700 mb-4">
@@ -80,36 +72,17 @@ export default function KatalogPage() {
                   <span className="font-medium">{item.harga}</span>
                 </p>
 
-                {/* mt-auto mendorong form ke bawah kartu */}
                 <form action="" className="mt-auto">
-                  {/* === BAGIAN INI HANYA DIUBAH PROPS-NYA === */}
                   <div className="quantity-input" data-min="1" data-max="10">
-                    <button
-                      className="minus-btn"
-                      type="button"
-                      aria-label="Kurangi Kuantitas"
-                      onClick={() => handleDecrease(item.nama)} // <-- LOGIKA DITAMBAHKAN
-                    >
+                    <button className="minus-btn" type="button" aria-label="Kurangi Kuantitas" onClick={() => handleDecrease(item.nama)}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
                       </svg>
                     </button>
 
-                    <input
-                      type="number"
-                      value={currentQuantity} // <-- LOGIKA DIUBAH (dari "0")
-                      min={min} // <-- LOGIKA DIUBAH
-                      max={max} // <-- LOGIKA DIUBAH
-                      aria-label="Kuantitas"
-                      onChange={(e) => handleInputChange(e, item.nama)} // <-- LOGIKA DITAMBAHKAN
-                    />
+                    <input type="number" value={currentQuantity} min={min} max={max} aria-label="Kuantitas" onChange={(e) => handleInputChange(e, item.nama)} />
 
-                    <button
-                      className="plus-btn"
-                      type="button"
-                      aria-label="Tambah Kuantitas"
-                      onClick={() => handleIncrease(item.nama)} // <-- LOGIKA DITAMBAHKAN
-                    >
+                    <button className="plus-btn" type="button" aria-label="Tambah Kuantitas" onClick={() => handleIncrease(item.nama)}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                       </svg>
@@ -118,14 +91,12 @@ export default function KatalogPage() {
 
                   <button
                     id="btn"
-                    // Kelas diubah secara dinamis berdasarkan kuantitas
                     className={`w-full mt-3 text-white rounded py-2 text-sm font-medium ${currentQuantity > 0 ? "bg-yellow-500 hover:bg-yellow-600 cursor-pointer" : "bg-yellow-400/70 cursor-not-allowed"}`}
                     type="submit"
-                    disabled={currentQuantity === 0} // <-- LOGIKA DITAMBAHKAN
+                    disabled={currentQuantity === 0}
                   >
                     Pesan Sekarang
                   </button>
-                  {/* === BATAS AKHIR PERUBAHAN PROPS === */}
                 </form>
               </div>
             </div>
