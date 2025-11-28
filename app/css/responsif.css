@@ -1,3 +1,13 @@
+@media  (max-width: 380px) {
+
+  .cart-foother{
+    padding: 0;
+    font-size: 15px;
+  }
+}
+
+
+
 /* Mobile - layar kecil (portrait) */
 @media (max-width: 480px) {
   /* CSS khusus untuk HP kecil */
